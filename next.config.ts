@@ -4,6 +4,15 @@ const config: NextConfig = {
   async headers() {
     return [
       {
+        source: "/",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, no-cache, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      {
         source: "/(.*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
